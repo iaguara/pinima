@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+cmdDir=${IA_APPS}/asciidoctor
+
+RUN_COMMAND="asciidoctor ${@}" make -C ${cmdDir} run

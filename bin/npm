@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+cmdDir=${IA_APPS}/node
+NODE_VERSION="10" RUN_COMMAND="npm ${@}" make -C ${cmdDir} run
