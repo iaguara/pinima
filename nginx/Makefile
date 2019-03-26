@@ -1,7 +1,9 @@
 project = nginx
 containerName = $(project).iaguara
 imageName = $(project)
-rootfs = $(HOST_IA_HOME)/projects/$(project)/rootfs
+
+rootDir = $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+rootfs = $(rootDir)/rootfs
 conf = /etc/nginx/conf.d/default.conf
 
 stop:
@@ -24,8 +26,8 @@ run: volume
 		-h $(containerName) \
 		-v $(rootfs)$(conf):$(conf) \
 		-v /tmp/nginx/log:/var/log/nginx \
-		--volumes-from tmp-vol.iaguara \
 		--volumes-from data-vol.iaguara \
+		--volumes-from tmp-vol.iaguara \
 		--volumes-from www-html-vol.iaguara \
 		$(imageName) \
 		$(RUN_COMMAND)

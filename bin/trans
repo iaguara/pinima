@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+cmdDir=${IA_APPS}/translate
+RUN_COMMAND="translate ${@}" make -C ${cmdDir} run

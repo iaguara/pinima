@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+cmdDir=${IA_APPS}/you-get
+RUN_COMMAND="you-get ${@}" make -C ${cmdDir} run

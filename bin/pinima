@@ -5,17 +5,17 @@ rootPath=$(cd -P -- "$(dirname -- "${0}")" && printf '%s\n' "$(pwd -P)")
 source ${rootPath}/../pinima.sh
 
 pinima() {
-  local appDir="${PINIMA_HOME}/${1}"
+  local app="${PINIMA_HOME}/${1}"
 
-  if [ -d "${appDir}" ]
+  if [ -d "${app}" ]
   then
     # remove first argument
     [ $# -ne 0 ] && shift
   else
-    echo "Pinima: ${appDir}: file not found!"
+    echo "Pinima: ${app}: directory not found!"
     exit 1
   fi
 
-  env make -C ${appDir} "${@}"
+  env make -C ${app} "${@}"
 }
 pinima "${@}"

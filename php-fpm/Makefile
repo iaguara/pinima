@@ -1,7 +1,9 @@
 project = php-fpm
 containerName = $(project).iaguara
 imageName = $(project)
-rootfs = $(HOST_IA_HOME)/projects/$(project)/rootfs
+
+rootDir = $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+rootfs = $(rootDir)/rootfs
 conf = /usr/local/etc/php/conf.d/custom.ini
 
 stop:

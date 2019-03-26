@@ -1,10 +1,11 @@
-project = vim
-date = $(shell date +%s)
-containerName = $(project)-$(date).iaguara
+project = you-get
 imageName = iaguara/$(project)
 
+CONTAINER_NAME ?= $(project)
+containerName = $(CONTAINER_NAME).iaguara
+
 stop:
-	- docker container stop $(shell docker ps -q --filter=name=vim)
+	- docker container stop $(containerName)
 
 remove: stop
 	- docker image rm -f $(imageName)
@@ -16,14 +17,12 @@ run:
 	docker run -it --rm \
 		--network iaguara \
 		--name $(containerName) \
-		-h $(containerName) \
-		--volumes-from data-vol.iaguara \
+		--hostname $(containerName) \
 		--volumes-from home-vol.iaguara \
 		--volumes-from tmp-vol.iaguara \
 		-e IA_UID \
 		-e IA_GID \
-		-e COLUMNS \
-		-e LINES \
 		-w $(PWD) \
+		$(CONTAINER_ARGS) \
 		$(imageName) \
 		$(RUN_COMMAND)

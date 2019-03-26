@@ -37,8 +37,7 @@ export PINIMA_HOME="$HOME/.pinima"
 The `bin` folder is added in your `$PATH` variable exposing some commands
 to your shell.
 
-*Ensure that `docker` is managed as a
-[non-root user](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user)*
+*Ensure that `docker` is managed as a [non-root user][docker-non-root]*
 
 
 ## The APP structure
@@ -63,3 +62,4 @@ The `Makefile` contains tasks to build and run the app.
 [iaguara/iaguara]: https://github.com/iaguara/iaguara 
 [make]: https://www.gnu.org/software/make/manual/html_node/index.html
 [docker]: https://docs.docker.com/install/
+[docker-non-root]: https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user
