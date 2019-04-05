@@ -13,7 +13,7 @@ run:
 		-h $(containerName) \
 		--volumes-from data-vol.iaguara \
 		--volumes-from tmp-vol.iaguara \
-		-u $(IA_UID):$(IA_GID) \
+		-u $(PINIMA_UID):$(PINIMA_GID) \
 		-w $(PWD) \
 		$(imageName) \
 		$(RUN_COMMAND)

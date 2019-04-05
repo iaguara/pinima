@@ -15,7 +15,7 @@ remove: stop
 volume:
 	- docker create \
 			--name www-html-vol.iaguara \
-			-v $(IA_DATA)/www/html:/var/www/html \
+			-v $(PINIMA_DATA)/www/html:/var/www/html \
 			tianon/true
 
 run: volume

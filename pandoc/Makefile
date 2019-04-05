@@ -21,7 +21,7 @@ run:
 		--volumes-from data-vol.iaguara \
 		--volumes-from home-vol.iaguara \
 		--volumes-from tmp-vol.iaguara \
-		-u $(IA_UID):$(IA_GID) \
+		-u $(PINIMA_UID):$(PINIMA_GID) \
 		-w $(PWD) \
 		$(CONTAINER_ARGS) \
 		$(imageName) \

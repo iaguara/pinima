@@ -17,11 +17,13 @@ run:
 		--network iaguara \
 		--name $(containerName) \
 		-h $(containerName) \
+		--volumes-from apps-vol.iaguara \
 		--volumes-from data-vol.iaguara \
 		--volumes-from home-vol.iaguara \
+		--volumes-from iaguara-vol.iaguara \
 		--volumes-from tmp-vol.iaguara \
-		-e IA_UID \
-		-e IA_GID \
+		-e PINIMA_UID \
+		-e PINIMA_GID \
 		-e COLUMNS \
 		-e LINES \
 		-w $(PWD) \
